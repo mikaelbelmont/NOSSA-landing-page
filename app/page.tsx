@@ -5,7 +5,6 @@ import Benefits from "@/components/benefits"
 import HowItWorks from "@/components/how-it-works"
 import Features from "@/components/features"
 import ROI from "@/components/roi"
-import Pricing from "@/components/pricing"
 import FAQ from "@/components/faq"
 import FinalCTA from "@/components/final-cta"
 import Footer from "@/components/footer"
@@ -21,9 +20,8 @@ export default function Home() {
         <HowItWorks />
         <Features />
         <ROI />
-        <Pricing />
-        <FAQ />
         <FinalCTA />
+        <FAQ />
       </main>
       <Footer />
     </div>

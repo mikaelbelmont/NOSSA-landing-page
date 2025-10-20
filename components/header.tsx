@@ -17,7 +17,7 @@ export default function Header() {
   ]
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-neutral-200 bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+    <header className="sticky top-0 z-50 w-full border-b border-neutral-200 bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60 shadow-lg">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <Link href="/" className="flex items-center space-x-2">
           <div className="text-2xl font-bold bg-gradient-to-r from-[#7950ff] to-[#6aa7ff] bg-clip-text text-transparent">
@@ -40,8 +40,8 @@ export default function Header() {
 
         <div className="hidden md:flex items-center">
           <Button
-            variant="outline"
-            className="border-[#7950ff] text-[#7950ff] hover:bg-[#7950ff] hover:text-white transition-colors bg-transparent"
+            onClick={() => {}}
+            className="bg-gradient-to-r from-[#7950ff] to-[#6aa7ff] hover:opacity-90"
             asChild
           >
             <Link href="#">Área do cliente</Link>
@@ -70,8 +70,7 @@ export default function Header() {
             ))}
             <div className="pt-4 border-t border-neutral-200">
               <Button
-                variant="outline"
-                className="w-full border-[#7950ff] text-[#7950ff] hover:bg-[#7950ff] hover:text-white transition-colors bg-transparent"
+                className="w-full bg-gradient-to-r from-[#7950ff] to-[#6aa7ff] hover:opacity-90"
                 asChild
               >
                 <Link href="#">Área do cliente</Link>

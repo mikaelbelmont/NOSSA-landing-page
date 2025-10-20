@@ -8,7 +8,11 @@ export default function Hero() {
   const { openCalendly } = useCalendly()
 
   const handleDemoClick = () => {
-    openCalendly()
+    // Scroll to Final CTA section
+    const element = document.getElementById('agendar')
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
     console.log("[v0] CTA clicked: demo", { location: "hero" })
   }
 
@@ -42,13 +46,12 @@ export default function Hero() {
             </Button>
             <Button
               size="lg"
-              variant="outline"
               onClick={handleTrialClick}
               data-cta="trial"
-              className="text-lg px-8 py-6 w-full sm:w-auto bg-transparent"
+              className="bg-gradient-to-r from-neutral-400 to-neutral-500 hover:opacity-90 text-lg px-8 py-6 w-full sm:w-auto"
               asChild
             >
-              <Link href="/contato?trial=true">Testar 14 dias grátis</Link>
+              <Link href="/programa-30-dias">Aderir programa 30 dias</Link>
             </Button>
           </div>
         </div>

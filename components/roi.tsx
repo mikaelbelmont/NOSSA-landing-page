@@ -12,6 +12,7 @@ const metrics = [
     after: "~180 leads/mês",
     improvement: "+260%",
     color: "text-blue-600",
+    gradient: "from-blue-500 to-indigo-600",
   },
   {
     icon: Clock,
@@ -20,6 +21,7 @@ const metrics = [
     after: "10h/mês com automações",
     improvement: "30h economizadas",
     color: "text-green-600",
+    gradient: "from-emerald-500 to-teal-600",
   },
   {
     icon: TrendingUp,
@@ -28,6 +30,7 @@ const metrics = [
     after: "4.8% de conversão",
     improvement: "+92%",
     color: "text-purple-600",
+    gradient: "from-purple-500 to-pink-600",
   },
   {
     icon: Zap,
@@ -36,6 +39,7 @@ const metrics = [
     after: "Instantâneo com IA",
     improvement: "100x mais rápido",
     color: "text-orange-600",
+    gradient: "from-orange-500 to-amber-600",
   },
 ]
 
@@ -43,58 +47,72 @@ export default function ROI() {
   const { openCalendly } = useCalendly()
 
   return (
-    <section id="roi" className="py-20 md:py-32">
+    <section id="roi" className="py-24 md:py-36 relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-emerald-400/10 to-teal-400/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 right-1/4 w-80 h-80 bg-gradient-to-r from-purple-400/10 to-pink-400/10 rounded-full blur-3xl"></div>
+      </div>
+
       <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-balance">
+        <div className="max-w-4xl mx-auto text-center mb-20">
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 text-balance bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
             O impacto real da Web Click no seu negócio
           </h2>
-          <p className="text-xl text-neutral-600 text-balance">
+          <p className="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
             Veja como empresas transformam resultados com automação e IA
           </p>
         </div>
 
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
-          {metrics.map((metric) => {
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10">
+          {metrics.map((metric, index) => {
             const Icon = metric.icon
             return (
-              <Card key={metric.title} className="p-8 border-neutral-200 hover:shadow-lg transition-shadow">
-                <div className="flex items-start gap-4 mb-6">
-                  <div className={`p-3 rounded-lg bg-neutral-100 ${metric.color}`}>
-                    <Icon className="w-6 h-6" strokeWidth={1.5} />
+              <Card 
+                key={metric.title} 
+                className={`
+                  relative p-10 border-0 shadow-lg bg-white
+                  overflow-hidden
+                  animate-in fade-in slide-in-from-bottom-4
+                `}
+                style={{ animationDelay: `${index * 150}ms` }}
+              >
+                {/* Decorative background pattern */}
+                <div className="absolute inset-0 bg-gradient-to-br from-white/50 to-transparent opacity-50"></div>
+                <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-white/20 to-transparent rounded-full blur-xl"></div>
+                
+                <div className="relative z-10">
+                  <div className="flex items-start gap-6 mb-8">
+                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${metric.gradient} flex items-center justify-center shadow-lg`}>
+                      <Icon className="w-8 h-8 text-white" strokeWidth={1.5} />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-2xl md:text-3xl font-bold mb-2 text-gray-900">{metric.title}</h3>
+                    </div>
                   </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold mb-2">{metric.title}</h3>
-                  </div>
-                </div>
 
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between p-3 bg-neutral-50 rounded-lg">
-                    <span className="text-sm text-neutral-600">Antes</span>
-                    <span className="font-semibold text-neutral-700">{metric.before}</span>
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+                      <span className="text-sm font-medium text-gray-600">Antes</span>
+                      <span className="font-semibold text-gray-700">{metric.before}</span>
+                    </div>
+                    <div className="flex items-center justify-between p-4 bg-gradient-to-r from-[#7950ff]/10 to-[#6aa7ff]/10 rounded-xl border border-[#7950ff]/20">
+                      <span className="text-sm font-medium text-gray-600">Com Web Click</span>
+                      <span className="font-semibold text-[#7950ff]">{metric.after}</span>
+                    </div>
                   </div>
-                  <div className="flex items-center justify-between p-3 bg-gradient-to-r from-[#7950ff]/10 to-[#6aa7ff]/10 rounded-lg border border-[#7950ff]/20">
-                    <span className="text-sm text-neutral-600">Com Web Click</span>
-                    <span className="font-semibold text-[#7950ff]">{metric.after}</span>
-                  </div>
-                </div>
 
-                <div className="mt-4 pt-4 border-t border-neutral-200">
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-neutral-600">Melhoria</span>
-                    <span className={`text-lg font-bold ${metric.color}`}>{metric.improvement}</span>
+                  <div className="mt-6 pt-6 border-t border-gray-200">
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm font-medium text-gray-600">Melhoria</span>
+                      <span className={`text-xl font-bold ${metric.color}`}>{metric.improvement}</span>
+                    </div>
                   </div>
                 </div>
               </Card>
             )
           })}
-        </div>
-
-        <div className="max-w-3xl mx-auto mt-12 text-center">
-          <Card className="p-8 bg-gradient-to-r from-[#7950ff] to-[#6aa7ff] text-white">
-            <p className="text-2xl md:text-3xl font-bold mb-2">Resultados reais de empresas que automatizaram com IA</p>
-            <p className="text-lg opacity-90">Menos trabalho manual, mais vendas e crescimento escalável</p>
-          </Card>
         </div>
       </div>
     </section>
