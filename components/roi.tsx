@@ -4,29 +4,6 @@ import { Card } from "@/components/ui/card"
 import { useCalendly } from "./calendly-provider"
 import { Users, Clock, TrendingUp, Zap } from "lucide-react"
 
-// Placeholder values - easily editable
-const ROI_DATA = {
-  separateTools: {
-    automation: 299,
-    email: 149,
-    crm: 199,
-    chatbot: 249,
-    total: 896,
-  },
-  manualHours: {
-    hoursPerMonth: 40,
-    costPerHour: 50,
-    total: 2000,
-  },
-  webClick: {
-    price: 497,
-  },
-  savings: {
-    monthly: 2399,
-    conversionIncrease: 35,
-  },
-}
-
 const metrics = [
   {
     icon: Users,
@@ -64,11 +41,6 @@ const metrics = [
 
 export default function ROI() {
   const { openCalendly } = useCalendly()
-
-  const handleDemoClick = () => {
-    openCalendly()
-    console.log("[v0] CTA clicked: demo", { location: "roi" })
-  }
 
   return (
     <section id="roi" className="py-20 md:py-32">
