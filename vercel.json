@@ -4,11 +4,6 @@
   "installCommand": "pnpm install",
   "framework": "nextjs",
   "regions": ["gru1"],
-  "functions": {
-    "app/**/*.tsx": {
-      "runtime": "nodejs20.x"
-    }
-  },
   "headers": [
     {
       "source": "/(.*)",
